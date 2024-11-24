@@ -1,14 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import '../styles/global.css'
-import StockChart from '../components/StockChart'
+import StockChart from '../components/StockChart/StockChart'
+import { stockData, labels } from '../data/mockStockData';
 
-// Example data
-const stockData = [
-  { label: 'AAPL', values: [100, 110, 115, 120] },
-  { label: 'MSFT', values: [200, 210, 220, 230] }
-]
-const labels = ['Jan', 'Feb', 'Mar', 'Apr'] // X-axis labels
+console.log({stockData, labels})
 ---
 
 <Layout title="Welcome to Astro.">
