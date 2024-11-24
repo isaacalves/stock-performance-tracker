@@ -1,13 +1,24 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import "../styles/global.css"
-import StockChart from "../components/StockChart"
+import Layout from '../layouts/Layout.astro'
+import '../styles/global.css'
+import StockChart from '../components/StockChart'
+
+// Example data
+const stockData = [
+  { label: 'AAPL', values: [100, 110, 115, 120] },
+  { label: 'MSFT', values: [200, 210, 220, 230] }
+]
+const labels = ['Jan', 'Feb', 'Mar', 'Apr'] // X-axis labels
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="flex justify-center items-center w-full h-screen">
+  <main class="flex justify-center items-center w-full flex-col">
     <div class="prose text-center">
-      <h1>Stock performance tracker</h1>
+      <h1 class="mt-8">Stock performance tracker</h1>
+    </div>
+
+    <div class="w-full p-8">
+      <StockChart data={stockData} {labels} client:load />
     </div>
   </main>
 </Layout>
