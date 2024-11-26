@@ -1,20 +1,30 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import { getColorFromPalette, chartOptions } from './chartConfig'
-import './chartSetup'
+import './chartRegister' // ? not sure why this is necessary? but it is
 
-interface StockChartProps {
-  data: { label: string; values: number[] }[] // `label` is the stock name, `values` are prices over time
-  labels: string[] // X-axis labels (e.g., time periods)
+interface StockLineChartProps {
+  data: { label: string; values: number[] }[] // Each stock's name and corresponding values
+  labels: string[] // X-axis labels (e.g., time periods or data points)
 }
 
-const StockChart: React.FC<StockChartProps> = ({ data, labels }) => {
-  // Prepare chart data
+export const StockLineChart: React.FC<StockLineChartProps> = ({
+  data,
+  labels
+}) => {
+  console.log(
+    'StockLineChart rendering with data:',
+    data,
+    'and labels:',
+    labels
+  )
+
+  // Prepare chart data for react-chartjs-2
   const chartData = {
     labels, // X-axis labels
     datasets: data.map((item, index) => ({
       label: item.label, // Stock name
-      data: item.values, // Y-axis values
+      data: item.values, // Y-axis values (e.g., prices)
       borderColor: getColorFromPalette(index), // Line color
       backgroundColor: getColorFromPalette(index), // Point color
       fill: false, // No fill under the line
@@ -28,5 +38,3 @@ const StockChart: React.FC<StockChartProps> = ({ data, labels }) => {
     </div>
   )
 }
-
-export default StockChart

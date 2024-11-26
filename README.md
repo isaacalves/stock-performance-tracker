@@ -1,3 +1,13 @@
+UPDATE
+
+Remember: astro files are like server rendered templates (from my understanding).
+
+Components will also be server rendered, unless they have `client:load` set in them.
+
+That's why you might see console.log() output in terminal instead of the browser.
+
+---
+
 # Astro Starter Kit: Basics
 
 ```sh

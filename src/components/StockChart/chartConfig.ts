@@ -1,8 +1,6 @@
-// src/config/chartConfig.ts
 import type { ChartOptions } from 'chart.js'
 
-// Tailwind Colours as HEX
-const tailwindColours = [
+const colors = [
   '#14b8a6', // Teal (cyan-500)
   '#f87171', // Red (red-400)
   '#3b82f6', // Blue (blue-500)
@@ -10,9 +8,7 @@ const tailwindColours = [
   '#a855f7' // Purple (purple-500)
 ]
 
-export const getColorFromPalette = (index: number): string => {
-  return tailwindColours[index % tailwindColours.length]
-}
+export const getColorFromPalette = (index: number): string => colors[index]
 
 export const chartOptions: ChartOptions<'line'> = {
   responsive: true,

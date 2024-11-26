@@ -1,10 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import '../styles/global.css'
-import StockChart from '../components/StockChart/StockChart'
-import { stockData, labels } from '../data/mockStockData';
-
-console.log({stockData, labels})
+import { StockChartContainer } from '../components/StockChart/StockChartContainer'
+// JS here is not logged in the browser as this is server-side rendered
+console.log('logged in terminal')
 ---
 
 <Layout title="Welcome to Astro.">
@@ -12,9 +11,8 @@ console.log({stockData, labels})
     <div class="prose text-center">
       <h1 class="mt-8">Stock performance tracker</h1>
     </div>
-
     <div class="w-full p-8">
-      <StockChart data={stockData} {labels} client:load />
+      <StockChartContainer client:load />
     </div>
   </main>
 </Layout>
