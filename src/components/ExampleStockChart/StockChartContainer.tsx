@@ -14,7 +14,7 @@ export const StockChartContainer: React.FC = () => {
   const loadMockData = () => {
     console.log('Loading mock data...')
     setStockData(exampleStockData)
-    setLabels(['Nov 20', 'Nov 21', 'Nov 22', 'Dec 22', 'Dec 21']) // Optional: static or derived labels ?
+    setLabels(['Nov 20', 'Nov 21', 'Nov 22', 'Dec 22', 'Dec 21'])
     setLoading(false)
   }
 

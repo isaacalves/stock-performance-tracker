@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import '../styles/global.css'
-import { StockChartContainer } from '../components/StockChart/StockChartContainer'
-// JS here is not logged in the browser as this is server-side rendered
-console.log('logged in terminal')
+import { TwelvedataStockChart } from '../components/TwelveData/TwelvedataStockChart'
+import { StockLabel } from '../components/TwelveData/types'
+
+console.log('logged in terminal') // JS here is not logged in the browser as this is server-side rendered
 ---
 
 <Layout title="Welcome to Astro.">
@@ -12,7 +13,7 @@ console.log('logged in terminal')
       <h1 class="mt-8">Stock performance tracker</h1>
     </div>
     <div class="w-full p-8">
-      <StockChartContainer client:load />
+      <TwelvedataStockChart symbol={StockLabel.VFIAX} client:load />
     </div>
   </main>
 </Layout>
