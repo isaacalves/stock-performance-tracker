@@ -13,8 +13,10 @@ export interface ChartData {
 }
 
 export const convertRawDataToChartData = (rawData: StockData): ChartData => {
-  const labels = rawData.values.map((entry) => entry.datetime) // Extract dates
-  const closePrices = rawData.values.map((entry) => parseFloat(entry.close)) // Extract closing prices
+  const reversedValues = [...rawData.values].reverse()
+
+  const labels = reversedValues.map((entry) => entry.datetime) // Extract dates
+  const closePrices = reversedValues.map((entry) => parseFloat(entry.close)) // Extract closing prices
 
   return {
     labels,
