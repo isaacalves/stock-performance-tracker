@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import '../styles/global.css'
-import { TwelvedataStockChart } from '../components/TwelveData/TwelvedataStockChart'
+import { TwelvedataContainer } from '../components/TwelveData/TwelvedataContainer'
 
 console.log('logged in terminal') // JS here is not logged in the browser as this is server-side rendered
 ---
@@ -12,7 +12,7 @@ console.log('logged in terminal') // JS here is not logged in the browser as thi
       <h1 class="mt-8">Stock performance tracker</h1>
     </div>
     <div class="w-full p-8">
-      <TwelvedataStockChart client:load />
+      <TwelvedataContainer client:load />
     </div>
   </main>
 </Layout>
