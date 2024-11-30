@@ -1,27 +1,7 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import type { ChartData } from './convertRawDataToChartData' // Ensure this matches the type above
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-} from 'chart.js'
-
-// Register Chart.js components
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-)
+import '../../utils/chartRegister'
 
 interface StockLineChartProps {
   data: ChartData

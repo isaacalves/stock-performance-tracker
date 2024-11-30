@@ -1,7 +1,7 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import { getColorFromPalette, chartOptions } from './chartConfig'
-import './chartRegister' // ? not sure why this is necessary? but it is
+import '../../utils/chartRegister'
 
 interface StockLineChartProps {
   data: { label: string; values: number[] }[] // Each stock's name and corresponding values

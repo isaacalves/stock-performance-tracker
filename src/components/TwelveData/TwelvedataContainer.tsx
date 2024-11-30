@@ -18,7 +18,6 @@ export const TwelvedataContainer = () => {
 
   return (
     <div>
-      <h2>Fetched Data for {symbol}:</h2>
       <StockLineChart data={chartData} />
     </div>
   )
