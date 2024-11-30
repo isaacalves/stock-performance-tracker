@@ -12,23 +12,33 @@ export interface ChartData {
   }[]
 }
 
-export const convertRawDataToChartData = (rawData: StockData): ChartData => {
-  const reversedValues = [...rawData.values].reverse()
+export const convertRawDataToChartData = (
+  rawData: StockData | StockData[]
+): ChartData => {
+  const datasets = (Array.isArray(rawData) ? rawData : [rawData]).map(
+    (stock, index) => {
+      const reversedValues = [...stock.values].reverse()
 
-  const labels = reversedValues.map((entry) => entry.datetime) // Extract dates
-  const closePrices = reversedValues.map((entry) => parseFloat(entry.close)) // Extract closing prices
+      const data = reversedValues.map((entry) => parseFloat(entry.close)) // Closing prices
+
+      return {
+        label: `Closing Prices - ${stock.meta.symbol}`,
+        data,
+        borderColor: `hsl(${index * 100}, 70%, 50%)`, // Unique color for each dataset
+        backgroundColor: `hsl(${index * 100}, 70%, 80%)`, // Fill color
+        fill: true,
+        tension: 0.4
+      }
+    }
+  )
+
+  const labels =
+    rawData instanceof Array
+      ? rawData[0]?.values.map((entry) => entry.datetime).reverse() || []
+      : rawData.values.map((entry) => entry.datetime).reverse()
 
   return {
     labels,
-    datasets: [
-      {
-        label: `Closing Prices - ${rawData.meta.symbol}`,
-        data: closePrices,
-        borderColor: 'rgb(75, 192, 192)', // Line color
-        backgroundColor: 'rgba(75, 192, 192, 0.2)', // Fill color
-        fill: true, // Fill under the line
-        tension: 0.4 // Smoothness of the line
-      }
-    ]
+    datasets
   }
 }

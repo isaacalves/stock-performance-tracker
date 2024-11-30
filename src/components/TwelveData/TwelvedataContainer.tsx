@@ -4,8 +4,14 @@ import { StockLabel } from './types'
 import { StockLineChart } from './StockLineChart'
 import { convertRawDataToChartData } from './convertRawDataToChartData'
 
-// const symbol = [StockLabel.VFIAX, StockLabel.BTC]
-const symbol = StockLabel.BTC
+const symbol = [
+  StockLabel.AAPL,
+  StockLabel.QQQ,
+  StockLabel.VFIAX,
+  StockLabel.BTA,
+  StockLabel.PETR4
+]
+// const symbol = StockLabel.BTC
 
 export const TwelvedataContainer = () => {
   const { data, error, loading } = useTwelvedata({ symbol })
