@@ -1,5 +1,5 @@
-import { QueryClientProvider, HydrationBoundary } from '@tanstack/react-query'
-import { TwelvedataContainer } from './TwelvedataContainer'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { TwelvedataContainer } from '../TwelveData/TwelvedataContainer'
 import { queryClient } from '../../queryClient'
 import { persistQueryClient } from '@tanstack/react-query-persist-client'
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
@@ -24,12 +24,10 @@ if (typeof window !== 'undefined') {
   })
 }
 
-export const TwelvedataQueryProviderWrapper = () => {
+export const ChartApp = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <HydrationBoundary>
-        <TwelvedataContainer />
-      </HydrationBoundary>
+      <TwelvedataContainer />
     </QueryClientProvider>
   )
 }
