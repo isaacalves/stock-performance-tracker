@@ -9,7 +9,7 @@ interface StockLineChartProps {
 
 export const StockLineChart: React.FC<StockLineChartProps> = ({ data }) => {
   const options = {
-    animation: false, // even though this works, it results in a TS error when passing to <Line>
+    animation: false as const, // as const needed to satisfy TS
     responsive: true,
     plugins: {
       legend: {
