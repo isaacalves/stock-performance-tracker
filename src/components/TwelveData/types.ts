@@ -37,8 +37,8 @@ export interface ChartData {
     label: string // Dataset name
     data: number[] // Y-axis data (closing prices)
     borderColor: string // Line color
-    backgroundColor: string // Fill color
-    fill: boolean // Whether to fill under the line
-    tension: number // Smoothness of the line
+    backgroundColor?: string // Fill color
+    fill?: boolean // Whether to fill under the line
+    tension?: number // Smoothness of the line
   }[]
 }

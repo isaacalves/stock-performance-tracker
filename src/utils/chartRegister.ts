@@ -7,8 +7,8 @@ import {
   LinearScale,
   Title,
   Tooltip,
-  Legend
-  //   Filler
+  Legend,
+  Filler
 } from 'chart.js'
 
 ChartJS.register(
@@ -19,6 +19,6 @@ ChartJS.register(
   LinearScale,
   Title,
   Tooltip,
-  Legend
-  //   Filler
+  Legend,
+  Filler
 )

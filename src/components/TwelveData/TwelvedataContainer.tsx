@@ -2,8 +2,8 @@ import React from 'react'
 import { useTwelvedata } from './hooks/useTwelvedata'
 import { StockLabel } from './types'
 import { StockLineChart } from './StockLineChart'
-import { convertRawDataToChartDataWithPercentages } from './utils/convertRawDataToChartDataWithPercentages'
-// import { convertRawDataToChartData } from './utils/convertRawDataToChartData'
+// import { mapStockToChartWithPercentages } from './utils/mapStockToChartWithPercentages'
+import { mapStockToChart } from './utils/mapStockToChart'
 
 const symbol = [
   StockLabel.AAPL,
@@ -22,8 +22,8 @@ export const TwelvedataContainer = () => {
   if (error) return <div>Error: {error.message}</div>
   if (!data) return <div>Error loading data</div>
 
-  // const chartData = convertRawDataToChartData(data)
-  const chartData = convertRawDataToChartDataWithPercentages(data)
+  const chartData = mapStockToChart({ rawData: data, usePercentage: true })
+  // const chartData = mapStockToChartWithPercentages(data)
 
   return <StockLineChart data={chartData} />
 }
