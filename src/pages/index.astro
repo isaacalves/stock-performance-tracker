@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import '../styles/global.css'
-import { TwelvedataContainer } from '../components/TwelveData/TwelvedataContainer'
-
+import { TwelvedataQueryProviderWrapper } from '../components/TwelveData/TwelvedataQueryProviderWrapper'
 console.log('logged in terminal') // JS here is not logged in the browser as this is server-side rendered
 ---
 
@@ -12,7 +11,7 @@ console.log('logged in terminal') // JS here is not logged in the browser as thi
       <h1 class="mt-8">Stock performance tracker</h1>
     </div>
     <div class="w-full p-8">
-      <TwelvedataContainer client:load />
+      <TwelvedataQueryProviderWrapper client:load />
     </div>
   </main>
 </Layout>

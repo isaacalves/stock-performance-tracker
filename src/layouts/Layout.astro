@@ -1,4 +1,6 @@
 ---
+// import { QueryProvider } from '../components/QueryProvider/QueryProvider' // Adjust the path as needed
+
 interface Props {
   title: string
 }
@@ -17,7 +19,10 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body>
+    <!-- maybe not here? moved to index.astro so it wraps the client loaded component. -->
+    <!-- <QueryProvider> -->
     <slot />
+    <!-- </QueryProvider> -->
   </body>
 </html>
 <style is:global></style>

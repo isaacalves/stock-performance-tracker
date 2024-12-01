@@ -1,8 +1,6 @@
 // https://support.twelvedata.com/en/articles/5335783-trial
 
-import type { StockData } from '../types'
-
-// import type { StockData } from '../types'
+import type { StockData } from '../../types'
 
 const AAPL = {
   meta: {

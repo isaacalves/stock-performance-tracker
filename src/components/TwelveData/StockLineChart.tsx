@@ -1,6 +1,6 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
-import type { ChartData } from './convertRawDataToChartData' // Ensure this matches the type above
+import type { ChartData } from './utils/convertRawDataToChartData' // Ensure this matches the type above
 import '../../utils/chartRegister'
 
 interface StockLineChartProps {
@@ -9,6 +9,7 @@ interface StockLineChartProps {
 
 export const StockLineChart: React.FC<StockLineChartProps> = ({ data }) => {
   const options = {
+    animation: false,
     responsive: true,
     plugins: {
       legend: {
@@ -34,5 +35,11 @@ export const StockLineChart: React.FC<StockLineChartProps> = ({ data }) => {
     }
   }
 
-  return <Line data={data} options={options} />
+  // ! if the <div> wrapping <Line> is removed, nothing is rendered
+  // todo: make it (more) responsive. Currently it adapts as viewport scales down but not when it scales up
+  return (
+    <div>
+      <Line data={data} options={options} />
+    </div>
+  )
 }
