@@ -11,6 +11,8 @@ export const StockLineChart: React.FC<StockLineChartProps> = ({ data }) => {
   const options = {
     animation: false as const, // as const needed to satisfy TS
     responsive: true,
+    // aspectRatio: 3, // control height/width with CSS
+    maintainAspectRatio: false, // control height/width with CSS
     plugins: {
       legend: {
         position: 'top' as const
@@ -35,10 +37,8 @@ export const StockLineChart: React.FC<StockLineChartProps> = ({ data }) => {
     }
   }
 
-  // ! if the <div> wrapping <Line> is removed, nothing is rendered
-  // todo: make it (more) responsive. Currently it adapts as viewport scales down but not when it scales up
   return (
-    <div>
+    <div className="w-full h-full flex-grow relative">
       <Line data={data} options={options} />
     </div>
   )
