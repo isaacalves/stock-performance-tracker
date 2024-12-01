@@ -1,6 +1,7 @@
 import { calculatePercentageChanges } from './calculatePercentageChanges';
-import { getColorFromPalette } from '../../../utils/chartColors';
+
 import type { ChartData, StockData } from '../types'
+import { symbolColors } from '../colors';
 
 export const mapStockToChart = ({ rawData, usePercentage = false }: {
   rawData: StockData | StockData[],
@@ -20,7 +21,7 @@ export const mapStockToChart = ({ rawData, usePercentage = false }: {
     return {
       label: stock.meta.symbol,
       data,
-      borderColor: getColorFromPalette(index),
+      borderColor: symbolColors[stock.meta.symbol as keyof typeof symbolColors],
       backgroundColor: 'transparent',
       fill: false,
       tension: 0.1
