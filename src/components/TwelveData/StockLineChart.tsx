@@ -1,6 +1,6 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
-import type { ChartData } from './utils/convertRawDataToChartData' // Ensure this matches the type above
+import type { ChartData } from './types' // Ensure this matches the type above
 import '../../utils/chartRegister'
 
 interface StockLineChartProps {

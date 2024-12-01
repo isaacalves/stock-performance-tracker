@@ -30,3 +30,15 @@ export type StockData = {
   meta: StockMetadata
   values: StockValue[]
 }
+
+export interface ChartData {
+  labels: string[] // X-axis labels (dates)
+  datasets: {
+    label: string // Dataset name
+    data: number[] // Y-axis data (closing prices)
+    borderColor: string // Line color
+    backgroundColor: string // Fill color
+    fill: boolean // Whether to fill under the line
+    tension: number // Smoothness of the line
+  }[]
+}

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
-import { getColorFromPalette, chartOptions } from './chartConfig'
+import { chartOptions } from './chartOptions'
 import '../../utils/chartRegister'
+import { getColorFromPalette } from '../../utils/chartColors'
 
 interface StockLineChartProps {
   data: { label: string; values: number[] }[] // Each stock's name and corresponding values
