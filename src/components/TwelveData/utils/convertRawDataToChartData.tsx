@@ -1,4 +1,4 @@
-import type { StockData } from './types'
+import type { StockData } from '../types'
 
 export interface ChartData {
   labels: string[] // X-axis labels (dates)

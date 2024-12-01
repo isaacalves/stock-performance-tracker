@@ -23,7 +23,5 @@ export const TwelvedataContainer = () => {
 
   const chartData = convertRawDataToChartData(data)
 
-  console.log('TwelvedataContainer')
-  console.log({ chartData })
   return <StockLineChart data={chartData} />
 }

@@ -1,20 +1,24 @@
 import {
   Chart as ChartJS,
+  LineElement,
+  PointElement,
+  LineController,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
   Title,
   Tooltip,
   Legend
+  //   Filler
 } from 'chart.js'
 
 ChartJS.register(
-  CategoryScale, // For the x-axis
-  LinearScale, // For the y-axis
-  PointElement,
   LineElement,
+  PointElement,
+  LineController,
+  CategoryScale,
+  LinearScale,
   Title,
   Tooltip,
   Legend
+  //   Filler
 )
