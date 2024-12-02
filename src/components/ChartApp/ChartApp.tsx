@@ -27,22 +27,30 @@ if (typeof window !== 'undefined') {
 
 const allSymbols = [
   StockLabel.AAPL,
+  StockLabel.PETR4,
   StockLabel.QQQ,
   StockLabel.VFIAX,
   StockLabel.BTA,
-  StockLabel.PETR4
+  StockLabel.BTC,
 ]
+
+// todo: verify it's not repeating requests unnecessarily
+// we're passing the symbol and loading the data internally in each TwelvedataContainer
+// however, the responses should be cached
 
 export const ChartApp = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex flex-col space-y-4">
-        <TwelvedataContainer className="h-96" symbol={allSymbols} usePercentage={true} />
-        <TwelvedataContainer className="h-96" symbol={[StockLabel.AAPL]} usePercentage={false} />
-        <TwelvedataContainer className="h-96" symbol={[StockLabel.QQQ]} usePercentage={true} />
-        <TwelvedataContainer className="h-96" symbol={[StockLabel.VFIAX]} usePercentage={true} />
-        <TwelvedataContainer className="h-96" symbol={[StockLabel.BTA]} usePercentage={true} />
-        <TwelvedataContainer className="h-96" symbol={[StockLabel.PETR4]} usePercentage={true} />
+        <TwelvedataContainer className="h-96" symbol={allSymbols.filter(s => s !== 'BTC')} usePercentage={true} />
+        {allSymbols.map((symbol) => (
+          <TwelvedataContainer
+            key={symbol}
+            className="h-96"
+            symbol={[symbol]}
+            usePercentage={false}
+          />
+        ))}
       </div>
     </QueryClientProvider>
   )
