@@ -16,7 +16,7 @@ export const mapStockToChart = ({ rawData, usePercentage = false }: {
   const datasets = stockArray.map((stock, index) => {
     const data = usePercentage
       ? calculatePercentageChanges(stock)
-      : stock.values.map((entry) => parseFloat(entry.close)).reverse();
+      : stock.values.map((entry) => parseFloat(entry.close));
 
     return {
       label: stock.meta.symbol,
@@ -28,6 +28,7 @@ export const mapStockToChart = ({ rawData, usePercentage = false }: {
     };
   });
 
+  // reverse so it's in chrnological ascending order
   const labels = stockArray[0]?.values.map((entry) => entry.datetime).reverse() || [];
 
   return {
