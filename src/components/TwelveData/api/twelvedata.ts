@@ -22,15 +22,29 @@ export const fetchStockData = async (
 
   const requests = symbolList.map(async (sym) => {
     const endpoint = `https://api.twelvedata.com/time_series?symbol=${sym}&interval=1day&apikey=${API_KEY}`
+    console.log(`Fetching ${sym}...`, endpoint)
+    
     const response = await fetch(endpoint)
     if (!response.ok) {
       throw new Error(
         `HTTP error! Status: ${response.status} for symbol: ${sym}`
       )
     }
-    return response.json()
+    
+    const data = await response.json()
+    console.log(`Data received for ${sym}:`, data)
+    
+    // Validate the response shape matches what we expect
+    if (!data.values || !Array.isArray(data.values)) {
+      console.error(`Invalid data structure for ${sym}:`, data)
+      throw new Error(`Invalid data structure received for symbol: ${sym}`)
+    }
+    
+    return data
   })
 
   const result = await Promise.all(requests)
+  console.log('All results:', result)
+  
   return symbolList.length === 1 ? result[0] : result
 }
