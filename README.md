@@ -1,3 +1,54 @@
+# Stock Chart Visualization
+
+A React-based stock chart visualization tool using TwelveData API.
+Just experimenting with stock market APIs and data visualisation.
+
+## 🔑 Prerequisites
+
+1. Get a free API key from [TwelveData](https://twelvedata.com/)
+2. Create a `.env` file in the root directory:
+```env
+PUBLIC_TWELVEDATA_API_KEY=your_api_key_here
+PUBLIC_USE_MOCK_DATA=false  # Set to true to use mock data
+```
+
+## 🚀 Tech Stack
+
+- [Astro](https://astro.build) - Web framework
+- [React](https://react.dev) - UI library
+- [TanStack Query](https://tanstack.com/query) - Data fetching & caching
+- [Chart.js](https://www.chartjs.org) with [react-chartjs-2](https://react-chartjs-2.js.org) - Chart visualization
+- [TwelveData API](https://twelvedata.com) - Stock market data
+- [Tailwind CSS](https://tailwindcss.com) - Styling
+
+## 📦 Features
+
+- Real-time stock data visualization
+- Local storage caching to handle API rate limits
+- Multiple stock comparison
+- Percentage-based comparison view
+- Mock data support for development
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+
+## 📝 Notes
+
+- Free tier API has rate limits - the app uses caching to minimize API calls
+- Mock data is available for development - set `PUBLIC_USE_MOCK_DATA=true`
+- Cache can be cleared via the debug button (in development mode)
+
+Original Astro project created with:
+
+---
 # Astro Starter Kit: Basics
 
 ```sh
